@@ -5,8 +5,8 @@ on: [push, workflow_dispatch]
 
 #Environment variables https://docs.github.com/en/actions/learn-github-actions/environment-variables
 env:
-  RESOURCE-GROUP: cloud-shell-storage-eastus
-  LOCATION: eastus
+  RESOURCE-GROUP: rg-az400-eshoponweb-mialam71
+  #LOCATION: eastus
   TEMPLATE-FILE: .azure/bicep/webapp.bicep
   SUBSCRIPTION-ID: 26078d29-db66-4f95-b209-79cfd27da808
   WEBAPP-NAME: az400-webapp-mialam71
@@ -81,7 +81,7 @@ jobs:
         subscriptionId: ${{ env.SUBSCRIPTION-ID }}
         resourceGroupName: ${{ env.RESOURCE-GROUP }}
         template: bicep-template/webapp.bicep
-        parameters: 'webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }}'
+        parameters: 'webAppName=${{ env.WEBAPP-NAME }}'
         failOnStdErr: false   
     
     # Publish website to Azure App Service (WebApp)
